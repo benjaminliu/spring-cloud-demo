@@ -1,5 +1,0 @@
-<!-- Logback configuration. See http://logback.qos.ch/manual/index.html -->
-<configuration>
-    <include resource="org/springframework/boot/logging/logback/base.xml"/>
-    <jmxConfigurator/>
-</configuration>
