@@ -1,0 +1,1 @@
+package com.ben.demo.data.provider.controller;import com.ben.demo.data.provider.api.HelloService;import org.springframework.web.bind.annotation.RestController;/** * Created by ben on 2017/11/27. */@RestControllerpublic class HelloController implements HelloService {    public String hello() {        return "hello";    }}

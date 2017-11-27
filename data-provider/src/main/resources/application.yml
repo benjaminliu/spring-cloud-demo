@@ -1,0 +1,22 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8771
+spring:
+  application:
+    name: data-provider
+  datasource:
+    druid:
+      url: jdbc:oracle:thin:@192.168.1.235:1521:test
+      username: vn_nd_0
+      password: 123456
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      initial-size: 2
+      max-active: 30
+      min-idle: 2
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ben.demo.data.provider.mapper
