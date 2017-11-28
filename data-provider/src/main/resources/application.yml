@@ -4,19 +4,46 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 server:
   port: 8771
+
+#druid config
 spring:
   application:
     name: data-provider
   datasource:
     druid:
       url: jdbc:oracle:thin:@192.168.1.235:1521:test
-      username: vn_nd_0
+      username: user
       password: 123456
       driver-class-name: oracle.jdbc.driver.OracleDriver
-      initial-size: 2
-      max-active: 30
-      min-idle: 2
+      initial-size: 1
+      max-active: 20
+      min-idle: 1
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+      validation-query: select 'x'
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      filters: stat
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid_url/*
+        login-username: druid_user
+        login-password: druid_123
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.ben.demo.data.provider.mapper
+
+#print sql in log,  if you don't want to, change debug to info or warn
+logging:
+  level:
+    com:
+      ben:
+        demo:
+          data:
+            provider:
+              mapper: DEBUG
